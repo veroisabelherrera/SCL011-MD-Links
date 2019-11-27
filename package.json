@@ -1,4 +1,28 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "description": "## Índice",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veroisabelherrera/SCL011-MD-Links.git"
+  },
+  "author": "Veronica Isabel Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veroisabelherrera/SCL011-MD-Links/issues"
+  },
+  "homepage": "https://github.com/veroisabelherrera/SCL011-MD-Links#readme",
+  "dependencies": {
+    "eslint": "^6.7.1",
+    "eslint-plugin-jest": "^23.0.5",
+    "htmlhint": "^0.11.0",
+    "jest": "^24.9.0"
+  }
 }
