@@ -24,10 +24,10 @@ const findFiles = (path =>{
     .then(files => {
       if(files.length != 0){
       resolve(files)}
-      reject(new Error("No se encontraron archivos .md dentro de " + path))
+      reject(new Error("No existen archivos .md en " + path))
     })
     .catch(err => {
-      reject(new Error("Esta ruta no existe, inténtalo con otra"))
+      reject(new Error("Esta ruta no existe"))
     })
   })
 })
@@ -62,9 +62,9 @@ const getLinks = () => {
         renderer.link = function (href, title, text) {
 
           links.push({
-            href: href,
-            text: text,
-            file: path
+            href: href, //url
+            text: text, //texto que acompaña link
+            file: path //ruta del archivo
           })
         };
 
@@ -101,9 +101,16 @@ Links().then(statistics => console.log(statistics))
 
 
 //Función que comprueba si path es archivo.md o directorio
+const fileIsMd = (path => {
+  if(path.slice(-3) == ".md"){
+    return true;
+  }
+  return false;
+})
+
 const fileOrDirectory = (path) => {
-  //comprueba si es archivo .md
-  if(isMd(path)){
+  //si es archivo .md
+  if(fileIsMd(path)){
     return getLinks()
   }
   //si es directorio
@@ -111,7 +118,7 @@ const fileOrDirectory = (path) => {
       return new Promise((resolve, reject) => { 
         findFiles(path)
         .then(files => {
-          findInDirectory(files)
+          Links()
           .then(links => {
             resolve(links)
           })
