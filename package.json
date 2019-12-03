@@ -22,6 +22,7 @@
   "dependencies": {
     "eslint": "^6.7.1",
     "eslint-plugin-jest": "^23.0.5",
+    "fetch": "^1.1.0",
     "htmlhint": "^0.11.0",
     "jest": "^24.9.0"
   }
